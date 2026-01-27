@@ -1,0 +1,42 @@
+@use 'mixins' as *;
+
+$ff-accent: 'Inter', sans-serif;
+$ff-base: 'Urbanist', sans-serif;
+$container-width: #{rem(1288)};
+
+$bgc_body: #f8f8f8;
+$black_color: #212427;
+$black_color_half: #212427b2;
+$accent_green: #268936;
+$olive_green: #eefae1;
+$accent_gradient: linear-gradient(
+    0deg,
+    #258232 0%,
+    #268936 13.94%,
+    #2ba84a 100%
+);
+$text_gradient: linear-gradient(
+    180deg,
+    #258232 0%,
+    #268634 22.12%,
+    #2ba84a 100%
+);
+
+:root {
+    --section-indent: #{rem(152)};
+    --scrl-mt: #{rem(100)};
+    --container-padding: #{rem(20)};
+}
+
+@media (max-width: 991px) {
+    :root {
+        --section-indent: #{rem(96)};
+    }
+}
+
+@media (max-width: 767px) {
+    :root {
+        --section-indent: #{rem(56)};
+        --container-padding: #{rem(12)};
+    }
+}
