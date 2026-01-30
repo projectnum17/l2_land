@@ -17,6 +17,9 @@
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: rem(24px);
+        @include media('mobile') {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
     }
 
     &__item {
@@ -27,28 +30,49 @@
         padding: rem(40px) rem(24px);
         background: #e4e4e4;
 
+        @include media('mobile') {
+            padding: rem(24px) rem(16px);
+            border-radius: rem(16px);
+        }
+
         img {
             width: rem(48px);
             height: rem(48px);
+            @include media('mobile') {
+                width: rem(32px);
+                height: rem(32px);
+            }
         }
     }
 
     &__title {
         font: 700 #{rem(32px)} / 120% $ff-base;
+        @include media('mobile') {
+            font-size: rem(24px);
+        }
     }
 
     &__text {
         font: 300 #{rem(14px)} / 160% $ff-base;
         color: #212427b2;
+        @include media('mobile') {
+            font-size: rem(12px);
+        }
     }
-
     &__bg {
-        opacity: 50%;
         position: absolute;
         left: 0;
         top: rem(71px);
         transform: translateX(-60%);
+        opacity: 50%;
         pointer-events: none;
+        @include media('mobile') {
+            width: rem(150px);
+            height: rem(150px);
+            top: rem(0px);
+            left: rem(0px);
+            transform: translateX(0);
+        }
     }
 
     .container {
@@ -62,14 +86,26 @@
         top: 0;
         left: 0;
         transform: translate(-50%, -50%) rotate(255deg);
+
+        @include media('desktop') {
+            top: rem(0px);
+            left: rem(0px);
+            transform: translate(-45%, -65%) rotate(255deg);
+        }
     }
 
     .cta {
         margin-top: rem(96px);
         z-index: 2;
+        @include media('mobile') {
+            margin-top: rem(56px);
+        }
     }
 
     .section-info {
         margin-bottom: rem(96px);
+        @include media('mobile') {
+            margin-bottom: rem(56px);
+        }
     }
 }

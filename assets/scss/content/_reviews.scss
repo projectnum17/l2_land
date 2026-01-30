@@ -14,12 +14,22 @@
         transform: translateX(-60%);
         opacity: 50%;
         pointer-events: none;
+        @include media('mobile') {
+            width: rem(150px);
+            height: rem(150px);
+            top: rem(0px);
+            left: rem(0px);
+            transform: translateX(0);
+        }
     }
 
     &__slider {
         overflow: visible;
         width: 100%;
         padding-top: rem(96px);
+        @include media('mobile') {
+            padding-top: rem(56px);
+        }
     }
 
     &__slide {
@@ -35,12 +45,20 @@
         justify-content: space-between;
         gap: rem(40px);
         background: #f1f1f1;
+        @include media('mobile') {
+            padding: rem(18px) rem(24px);
+            border-radius: rem(16px);
+            gap: rem(24px);
+        }
 
         &__text {
             font: 300 #{rem(14px)} / 160% $ff-base;
             margin-bottom: rem(40px);
             padding-top: rem(17px);
             position: relative;
+            @include media('mobile') {
+                margin-bottom: rem(24px);
+            }
             &::after {
                 content: '';
                 position: absolute;
@@ -68,6 +86,11 @@
                 height: 64px;
                 border-radius: 50%;
                 object-fit: cover;
+
+                @include media('mobile') {
+                    width: rem(42px);
+                    height: rem(42px);
+                }
             }
         }
 
@@ -102,9 +125,18 @@
         top: 0;
         left: 0;
         transform: translate(-50%, -50%) rotate(255deg);
+
+        @include media('desktop') {
+            top: rem(0px);
+            left: rem(0px);
+            transform: translate(-45%, -65%) rotate(255deg);
+        }
     }
 
     .cta {
         margin-top: rem(96px);
+        @include media('mobile') {
+            margin-top: rem(56px);
+        }
     }
 }

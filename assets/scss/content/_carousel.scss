@@ -16,10 +16,18 @@
         position: absolute;
         top: rem(-200px);
         right: rem(-200px);
+        @include media('desktop') {
+            top: rem(0px);
+            right: rem(0px);
+            transform: translate(45%, -65%);
+        }
     }
 
     .section-info {
         margin-bottom: rem(139px);
+        @include media('mobile') {
+            margin-bottom: rem(56px);
+        }
     }
 
     .slider-nav {
@@ -30,8 +38,10 @@
         z-index: 2;
         margin: 0 auto;
         margin-top: rem(96px);
+        @include media('mobile') {
+            margin-top: rem(56px);
+        }
     }
-
     &__bg {
         opacity: 50%;
         position: absolute;
@@ -41,13 +51,27 @@
         z-index: 2;
         right: rem(-50px);
         pointer-events: none;
+        @include media('tablet') {
+            top: rem(20px);
+            right: rem(20px);
+        }
+        @include media('mobile') {
+            width: rem(150px);
+            height: rem(150px);
+            top: rem(-30px);
+            right: rem(-30px);
+        }
     }
 
     &__slider {
         overflow: visible;
+        width: 100%;
 
         &-slide {
             width: auto;
+            @include media('mobile') {
+                width: inherit;
+            }
         }
     }
 }

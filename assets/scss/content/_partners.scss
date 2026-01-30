@@ -3,7 +3,7 @@
 @use '../base/var' as *;
 
 .partners {
-    margin-bottom: rem(152px);
+    margin-bottom: var(--section-indent);
     overflow: hidden;
     user-select: none;
 

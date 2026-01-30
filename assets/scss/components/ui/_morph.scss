@@ -5,4 +5,12 @@
 .morph {
     width: 526px;
     height: 516px;
+    @include media('tablet') {
+        width: rem(350px);
+        height: rem(350px);
+    }
+    @include media('mobile') {
+        width: rem(250px);
+        height: rem(250px);
+    }
 }

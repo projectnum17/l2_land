@@ -7,6 +7,10 @@
     position: relative;
     overflow: hidden;
 
+    @include media('mobile') {
+        padding-block: rem(0px) var(--section-indent);
+    }
+
     .container {
         display: flex;
         flex-direction: column;
@@ -15,10 +19,16 @@
 
     .section-info {
         margin-bottom: rem(238px);
+        @include media('mobile') {
+            margin-bottom: rem(56px);
+        }
     }
 
     .cta {
         z-index: 4;
+        @include media('mobile') {
+            margin-top: rem(52px);
+        }
     }
 
     &__previews {
@@ -30,11 +40,21 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        @include media('mobile') {
+            position: relative;
+            transform: translateX(0);
+            top: inherit;
+            left: inherit;
+        }
     }
 
     &__pic {
         width: rem(374px);
         z-index: 2;
+
+        @include media('mobile') {
+            width: rem(250px);
+        }
     }
 
     &__scene {
@@ -46,6 +66,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @include media('mobile') {
+            width: rem(700px);
+        }
 
         &::after {
             content: '';
@@ -76,6 +100,11 @@
         position: relative;
         z-index: 3;
         margin-bottom: rem(397px);
+        @include media('mobile') {
+            grid-template-columns: repeat(1, 1fr);
+            gap: rem(16px);
+            margin-bottom: rem(56px);
+        }
     }
 
     &__card {
@@ -89,10 +118,20 @@
             justify-self: flex-end;
         }
 
+        @include media('mobile') {
+            max-width: 100%;
+            border-radius: rem(16px);
+            padding: rem(18px);
+        }
+
         img {
             width: rem(40px);
             height: rem(40px);
             margin-bottom: rem(8px);
+            @include media('mobile') {
+                width: rem(32px);
+                height: rem(32px);
+            }
         }
     }
 
@@ -104,5 +143,9 @@
     &__text {
         font: 300 #{rem(14px)} / 160% $ff-base;
         color: $black_color_half;
+
+        @include media('mobile') {
+            font-size: rem(12px);
+        }
     }
 }

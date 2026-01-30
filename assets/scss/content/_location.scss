@@ -4,9 +4,15 @@
 
 .location {
     padding-block: rem(73px) rem(112px);
+    @include media('mobile') {
+        padding-block: var(--section-indent);
+    }
 
     .section-info {
         margin-bottom: rem(66px);
+        @include media('mobile') {
+            margin-bottom: rem(56px);
+        }
     }
 
     &__map {
@@ -51,6 +57,15 @@
         background: #26853480;
         backdrop-filter: blur(20px);
         color: #f8f8f8;
+        @include media('mobile') {
+            width: 100%;
+            max-width: 100%;
+            text-align: center;
+            border-radius: rem(16px);
+            padding: rem(18px);
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
         &::after {
             content: '';
@@ -63,21 +78,36 @@
             transform: translate(-50%, 50%);
             background: url('../imgs/ico/pol.svg') no-repeat center center /
                 cover;
+            @include media('mobile') {
+                left: 45%;
+                bottom: rem(-8px);
+                transform: translate(-50%, 50%) rotate(-42deg);
+            }
         }
     }
 
     &__title {
         font: 700 #{rem(32px)} / 120% $ff-base;
         margin-bottom: rem(15px);
+
+        @include media('mobile') {
+            font-size: rem(24px);
+        }
     }
 
     &__subtitle {
         font: 700 #{rem(14px)} / 160% $ff-base;
         color: #fff;
+        @include media('mobile') {
+            font-size: rem(12px);
+        }
     }
 
     &__text {
         font: 300 #{rem(14px)} / 160% $ff-base;
         color: #fff;
+        @include media('mobile') {
+            font-size: rem(12px);
+        }
     }
 }

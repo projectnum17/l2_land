@@ -7,6 +7,11 @@
     display: flex;
     align-items: center;
     gap: rem(4px);
+
+    @include media('mobile') {
+        padding-top: rem(32px);
+    }
+
     &:has(.swiper-button-lock) {
         display: none;
     }

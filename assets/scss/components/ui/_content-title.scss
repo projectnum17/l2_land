@@ -3,4 +3,10 @@
 @use '../../base/var' as *;
 .content-title {
     font: 700 #{rem(64px)} / 110% $ff-base;
+    @include media('tablet') {
+        font-size: rem(44px);
+    }
+    @include media('mobile') {
+        font-size: rem(36px);
+    }
 }

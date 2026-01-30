@@ -9,6 +9,10 @@
 
     &__info {
         max-width: rem(506px);
+        @include media('tablet') {
+            max-width: 100%;
+            width: 100%;
+        }
     }
 
     &__benefits {
@@ -16,12 +20,22 @@
         border-radius: rem(20px);
         padding: rem(40px) rem(24px);
         background: #f1f1f1;
+        @include media('mobile') {
+            margin-top: rem(24px);
+            border-radius: rem(16px);
+            padding: rem(24px) rem(12px);
+        }
     }
 
     &__title {
         font: 700 #{rem(32px)} / 120% $ff-base;
         max-width: rem(316px);
         margin-bottom: rem(32px);
+        @include media('mobile') {
+            font-size: rem(24px);
+            max-width: 100%;
+            margin-bottom: rem(18px);
+        }
     }
 
     &__list {
@@ -29,6 +43,14 @@
         grid-template-columns: repeat(2, 1fr);
         gap: rem(16px) 0;
         margin-bottom: rem(40px);
+        @include media('tablet') {
+            max-width: 50%;
+        }
+        @include media('mobile') {
+            max-width: 100%;
+            grid-template-columns: repeat(1, 1fr);
+            gap: rem(12px);
+        }
         li {
             display: inline-flex;
             align-items: center;
@@ -52,7 +74,7 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: rem(24px);
-
+        flex-shrink: 0;
         max-height: rem(920px);
         overflow-y: auto;
         scrollbar-width: none;
@@ -75,6 +97,18 @@
         &.is-hide {
             -webkit-mask-size: 100% 200%;
         }
+
+        @include media('tablet') {
+            max-width: 100%;
+            width: 100%;
+            max-height: inherit;
+            -webkit-mask-image: none;
+            overflow: inherit;
+        }
+        @include media('mobile') {
+            grid-template-columns: repeat(1, 1fr);
+            gap: rem(16px);
+        }
     }
 
     &__card {
@@ -84,6 +118,14 @@
         border-radius: rem(20px);
         overflow: hidden;
         position: relative;
+        @include media('tablet') {
+            width: 100%;
+            max-width: 100%;
+        }
+        @include media('mobile') {
+            border-radius: rem(16px);
+            height: rem(400px);
+        }
 
         img {
             width: 100%;
@@ -118,12 +160,20 @@
         backdrop-filter: blur(15px) saturate(180%) contrast(100%);
         -webkit-box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        @include media('mobile') {
+            padding: rem(18px);
+        }
     }
 
     &__subtitle {
         font: 700 #{rem(32px)} / 120% $ff-base;
         margin-bottom: rem(40px);
         color: $olive_green;
+        @include media('mobile') {
+            border-radius: rem(16px);
+            font-size: rem(24px);
+            margin-bottom: rem(12px);
+        }
     }
 
     &__link {
@@ -148,6 +198,9 @@
         align-items: flex-start;
         justify-content: space-between;
         gap: rem(20px);
+        @include media('tablet') {
+            flex-direction: column;
+        }
     }
 
     .cta {
@@ -159,6 +212,11 @@
         width: rem(48px);
         height: rem(48px);
         overflow: visible;
+
+        @include media('mobile') {
+            width: rem(36px);
+            height: rem(36px);
+        }
 
         path {
             transform-origin: center;

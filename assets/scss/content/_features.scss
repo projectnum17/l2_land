@@ -19,18 +19,26 @@
         display: flex;
         align-items: flex-start;
         gap: rem(24px);
+        @include media('mobile') {
+            flex-direction: column-reverse;
+        }
 
         &__info,
         &__pics {
             width: 50%;
+            @include media('mobile') {
+                width: 100%;
+            }
         }
 
         &__info {
             padding-right: rem(24px);
+            @include media('mobile') {
+                padding-right: 0;
+            }
         }
 
-        &__title {
-            font: 700 #{rem(64px)} / 110% $ff-base;
+        .content-title {
             margin-bottom: rem(16px);
         }
 
@@ -86,6 +94,12 @@
             display: flex;
             align-items: flex-start;
             gap: rem(24px);
+
+            @include media('mobile') {
+                flex-direction: column;
+                gap: rem(12px);
+            }
+
             li {
                 display: flex;
                 flex-direction: column;
@@ -94,6 +108,13 @@
                 &:not(:last-child) {
                     padding-right: rem(24px);
                     border-right: 1px solid #00000033;
+
+                    @include media('mobile') {
+                        padding-right: 0;
+                        padding-bottom: rem(12px);
+                        border-right: none;
+                        border-bottom: 1px solid #00000033;
+                    }
                 }
 
                 .row {
@@ -122,16 +143,32 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: rem(24px);
+            @include media('mobile') {
+                gap: rem(12px);
+            }
 
             img {
                 border-radius: rem(20px);
+                @include media('mobile') {
+                    border-radius: rem(16px);
+                }
                 &:first-child {
                     aspect-ratio: 612 / 516;
                     grid-column: span 2;
+                    @include media('mobile') {
+                        height: rem(350px);
+                        width: 100%;
+                        object-fit: cover;
+                    }
                 }
 
                 &:not(:first-child) {
                     aspect-ratio: 294 / 171;
+                    @include media('mobile') {
+                        height: rem(170px);
+                        width: 100%;
+                        object-fit: cover;
+                    }
                 }
             }
         }

@@ -1,5 +1,16 @@
 'use strict';
 
+const loader = document.querySelector('.loader');
+let loaderHidden = false;
+
+const hideLoader = () => {
+    if (loader && !loaderHidden) {
+        loaderHidden = true;
+        loader.classList.add('is-hide');
+        setTimeout(() => loader.remove(), 500);
+    }
+};
+
 import mobileMenuHandler from './modules/mobileMenuHandler.js';
 import ctaHoverHandler from './modules/ctaHoverHandler.js';
 import headerScrolledHandler from './modules/headerScrolledHandler.js';
@@ -171,6 +182,14 @@ document.addEventListener('DOMContentLoaded', () => {
             nextEl: '.js-gallery-next',
         },
         slidesPerView: 'auto',
+        breakpoints: {
+            0: {
+                slidesPerView: 1.2,
+            },
+            768: {
+                slidesPerView: 'auto',
+            },
+        },
     });
     slidersConfig('.js-carousel-slider', {
         navigation: {
@@ -178,6 +197,14 @@ document.addEventListener('DOMContentLoaded', () => {
             nextEl: '.js-carousel-next',
         },
         slidesPerView: 'auto',
+        breakpoints: {
+            0: {
+                slidesPerView: 1.2,
+            },
+            768: {
+                slidesPerView: 'auto',
+            },
+        },
     });
     slidersConfig('.js-videos-slider', {
         navigation: {
@@ -185,6 +212,14 @@ document.addEventListener('DOMContentLoaded', () => {
             nextEl: '.js-videos-next',
         },
         slidesPerView: 'auto',
+        breakpoints: {
+            0: {
+                slidesPerView: 1.2,
+            },
+            768: {
+                slidesPerView: 'auto',
+            },
+        },
     });
     slidersConfig('.js-reviews-slider', {
         slidesPerView: 2,
@@ -195,6 +230,22 @@ document.addEventListener('DOMContentLoaded', () => {
         navigation: {
             prevEl: '.js-reviews-prev',
             nextEl: '.js-reviews-next',
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+                grid: {
+                    rows: 1,
+                },
+                spaceBetween: 20,
+            },
+            768: {
+                slidesPerView: 2,
+                grid: {
+                    rows: 2,
+                    fill: 'row',
+                },
+            },
         },
     });
     slidersConfig('.js-features-slider', {
@@ -220,5 +271,20 @@ document.addEventListener('DOMContentLoaded', () => {
             el: '.js-houses-pag',
             clickable: true,
         },
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+                centeredSlides: false,
+                spaceBetween: 24,
+            },
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 64,
+                centeredSlides: true,
+            },
+        },
     });
+
+    window.addEventListener('load', hideLoader);
+    setTimeout(hideLoader, 7000);
 });

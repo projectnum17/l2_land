@@ -16,10 +16,21 @@
         position: absolute;
         top: rem(-200px);
         right: rem(-200px);
+        @include media('desktop') {
+            top: rem(0px);
+            right: rem(0px);
+            transform: translate(45%, -65%);
+        }
     }
 
     .section-info {
         margin-bottom: rem(139px);
+        @include media('tablet') {
+            margin-bottom: rem(86px);
+        }
+        @include media('mobile') {
+            margin-bottom: rem(56px);
+        }
     }
 
     .slider-nav {
@@ -28,6 +39,11 @@
 
     .videos-box {
         max-width: rem(400px);
+
+        @include media('mobile') {
+            max-width: 100%;
+            width: 100%;
+        }
 
         &:has(.videos-box__control.is-hide) {
             .videos-box__content {
@@ -52,6 +68,10 @@
                 0.5s,
                 cubic-bezier(0.768, 0.304, 0.496, 0.884)
             );
+            @include media('mobile') {
+                border-radius: rem(16px);
+                height: rem(400px);
+            }
 
             &::after {
                 content: '';
@@ -84,10 +104,17 @@
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 2;
+            width: rem(72px);
+            height: rem(72px);
             @include transitions(
                 0.5s,
                 cubic-bezier(0.768, 0.304, 0.496, 0.884)
             );
+
+            @include media('mobile') {
+                width: rem(56px);
+                height: rem(56px);
+            }
 
             &.is-hide {
                 transform: translate(-50%, -60%);
@@ -107,6 +134,11 @@
                 cubic-bezier(0.768, 0.304, 0.496, 0.884)
             );
 
+            @include media('mobile') {
+                padding: rem(24px) rem(16px) rem(24px) rem(16px);
+                border-radius: rem(16px);
+            }
+
             background: linear-gradient(
                 180deg,
                 rgba(33, 36, 39, 0) 0%,
@@ -120,16 +152,25 @@
             font: 700 #{rem(32px)} / 120% $ff-base;
             margin-bottom: rem(8px);
             color: #eefae1;
+            @include media('mobile') {
+                font-size: rem(24px);
+            }
         }
         &__texts {
             display: flex;
             flex-direction: column;
             gap: rem(24px);
             margin-bottom: rem(24px);
+            @include media('mobile') {
+                gap: rem(12px);
+            }
         }
         &__about {
             font: 300 #{rem(14px)} / 160% $ff-base;
             color: #eefae1b2;
+            @include media('mobile') {
+                font-size: rem(12px);
+            }
         }
 
         &__quote {
@@ -137,6 +178,9 @@
             font-style: italic;
             position: relative;
             color: #eefae1b2;
+            @include media('mobile') {
+                font-size: rem(12px);
+            }
             &::after {
                 content: '';
                 position: absolute;
@@ -153,6 +197,9 @@
             display: flex;
             flex-direction: column;
             gap: rem(16px);
+            @include media('mobile') {
+                gap: rem(12px);
+            }
 
             li {
                 font: 300 #{rem(14px)} / 160% $ff-base;
@@ -160,6 +207,9 @@
                 align-items: center;
                 gap: rem(8px);
                 color: #eefae1b2;
+                @include media('mobile') {
+                    font-size: rem(12px);
+                }
 
                 &::before {
                     content: '';
@@ -176,10 +226,14 @@
 
     &__slider {
         overflow: visible;
+        width: 100%;
     }
 
     &__slide {
         width: auto;
+        @include media('mobile') {
+            width: inherit;
+        }
     }
 
     &__bg {
@@ -191,6 +245,17 @@
         z-index: 2;
         right: rem(-50px);
         pointer-events: none;
+        @include media('tablet') {
+            margin-bottom: rem(100px);
+            top: rem(20px);
+            right: rem(20px);
+        }
+        @include media('mobile') {
+            width: rem(150px);
+            height: rem(150px);
+            top: rem(-30px);
+            right: rem(-30px);
+        }
     }
 
     .cta {
@@ -201,5 +266,8 @@
         width: 100%;
         justify-content: flex-end;
         margin-bottom: rem(96px);
+        @include media('mobile') {
+            margin-bottom: rem(56px);
+        }
     }
 }

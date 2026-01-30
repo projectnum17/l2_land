@@ -6,19 +6,32 @@
     padding-block: rem(153px) rem(171px);
     overflow: hidden;
 
+    @include media('tablet') {
+        padding-block: var(--section-indent);
+    }
+
     .container {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: rem(40px);
+        @include media('tablet') {
+            flex-direction: column;
+        }
     }
 
     &__info {
         max-width: rem(506px);
+        @include media('tablet') {
+            max-width: 100%;
+        }
     }
 
     &__form {
         margin-bottom: rem(98px);
+        @include media('tablet') {
+            margin-bottom: rem(56px);
+        }
 
         form {
             display: flex;
@@ -85,12 +98,24 @@
             #268634 22.12%,
             #2ba84a 100%
         );
+        @include media('tablet') {
+            justify-content: center;
+        }
+        @include media('mobile') {
+            flex-direction: column;
+            padding: rem(18px);
+            border-radius: rem(16px);
+        }
     }
 
     &__item {
         img {
             width: rem(40px);
             height: rem(40px);
+            @include media('mobile') {
+                width: rem(32px);
+                height: rem(32px);
+            }
         }
 
         a {
@@ -99,6 +124,9 @@
             align-items: center;
             gap: rem(8px);
             color: #eefae1;
+            @include media('desktop') {
+                font-size: rem(18px);
+            }
         }
     }
 
@@ -107,6 +135,12 @@
         position: relative;
         margin-right: -20%;
         flex-shrink: 0;
+        @include media('desktop') {
+            max-width: rem(650px);
+        }
+        @include media('tablet') {
+            display: none;
+        }
 
         img {
             width: 100%;
@@ -118,6 +152,12 @@
             top: 8%;
             width: rem(450px);
             height: rem(450px);
+            @include media('desktop') {
+                width: rem(360px);
+                height: rem(360px);
+                left: 6%;
+                top: 7%;
+            }
 
             img {
                 position: absolute;
@@ -136,6 +176,10 @@
                     left: 50%;
                     transform: translate(-50%, -50%);
                     animation: rotates 20s linear infinite;
+                    @include media('desktop') {
+                        width: rem(420px);
+                        height: rem(420px);
+                    }
 
                     @keyframes rotates {
                         from {
@@ -152,6 +196,12 @@
 
     .section-info {
         margin-bottom: rem(56px);
+        @include media('tablet') {
+            flex-direction: column;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
     }
 
     .cta {

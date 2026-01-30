@@ -3,7 +3,6 @@
 @use '../base/var' as *;
 
 .section-info {
-
     &--centered {
         max-width: rem(726px);
         margin: 0 auto;
@@ -20,6 +19,10 @@
     &:has(.cta) {
         .section-info__descr {
             margin-bottom: rem(40px);
+
+            @include media('mobile') {
+                margin-bottom: rem(24px);
+            }
         }
     }
 
@@ -36,6 +39,11 @@
         background: rgba(255, 255, 255, 0.4);
         backdrop-filter: blur(20px);
         color: $accent_green;
+        @include media('mobile') {
+            font-size: rem(8px);
+            margin-bottom: rem(12px);
+            padding: rem(5px) rem(15px);
+        }
 
         &::before {
             content: '';
@@ -62,5 +70,10 @@
         font: 300 #{rem(14px)} / 160% $ff-base;
         padding-top: rem(16px);
         color: $black_color_half;
+
+        @include media('mobile') {
+            font-size: rem(12px);
+            padding-top: rem(12px);
+        }
     }
 }

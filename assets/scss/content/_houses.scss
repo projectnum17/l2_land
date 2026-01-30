@@ -17,6 +17,9 @@
         justify-content: center;
         gap: rem(16px);
         margin-bottom: rem(96px);
+        @include media('mobile') {
+            margin-bottom: rem(56px);
+        }
     }
 
     &__pag {
@@ -62,6 +65,13 @@
         width: 100%;
         min-height: rem(800px);
         padding-block: rem(96px) rem(96px);
+        @include media('tablet') {
+            min-height: 680px;
+        }
+        @include media('mobile') {
+            min-height: auto;
+            padding-block: rem(56px);
+        }
     }
 
     &__wrapper {
@@ -74,14 +84,24 @@
             .houses-box {
                 &__pic {
                     max-width: rem(532px);
+                    @include media('mobile') {
+                        max-width: rem(250px);
+                    }
                 }
 
                 &__title {
                     transform: scale(1.33);
                     padding-bottom: rem(10px);
+                    @include media('mobile') {
+                        transform: scale(1);
+                        padding-bottom: 0;
+                    }
                 }
                 &__text {
                     transform: scale(1.27);
+                    @include media('mobile') {
+                        transform: scale(1);
+                    }
                 }
             }
         }
@@ -101,6 +121,10 @@
                 0.5s,
                 cubic-bezier(0.768, 0.304, 0.496, 0.884)
             );
+
+            @include media('mobile') {
+                max-width: rem(250px);
+            }
         }
 
         &__title {
@@ -111,6 +135,12 @@
                 0.5s,
                 cubic-bezier(0.768, 0.304, 0.496, 0.884)
             );
+            @include media('tablet') {
+                font-size: rem(18px);
+            }
+            @include media('mobile') {
+                font-size: rem(24px);
+            }
         }
 
         &__text {
@@ -127,16 +157,31 @@
         position: absolute;
         top: rem(-200px);
         right: rem(-200px);
+        @include media('desktop') {
+            top: rem(0px);
+            right: rem(0px);
+            transform: translate(45%, -65%);
+        }
     }
 
     &__bg {
-        position: absolute;
         opacity: 50%;
+        position: absolute;
         width: rem(350px);
         height: rem(350px);
         top: rem(122px);
         z-index: 2;
         right: rem(-50px);
         pointer-events: none;
+        @include media('tablet') {
+            top: rem(20px);
+            right: rem(20px);
+        }
+        @include media('mobile') {
+            width: rem(150px);
+            height: rem(150px);
+            top: rem(-30px);
+            right: rem(-30px);
+        }
     }
 }
