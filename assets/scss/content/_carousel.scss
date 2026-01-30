@@ -1,0 +1,53 @@
+@use '../base/media' as *;
+@use '../base/mixins' as *;
+@use '../base/var' as *;
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    padding-block: var(--section-indent);
+
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .morph {
+        position: absolute;
+        top: rem(-200px);
+        right: rem(-200px);
+    }
+
+    .section-info {
+        margin-bottom: rem(139px);
+    }
+
+    .slider-nav {
+        justify-content: flex-end;
+    }
+
+    .cta {
+        z-index: 2;
+        margin: 0 auto;
+        margin-top: rem(96px);
+    }
+
+    &__bg {
+        opacity: 50%;
+        position: absolute;
+        width: rem(350px);
+        height: rem(350px);
+        top: rem(122px);
+        z-index: 2;
+        right: rem(-50px);
+        pointer-events: none;
+    }
+
+    &__slider {
+        overflow: visible;
+
+        &-slide {
+            width: auto;
+        }
+    }
+}

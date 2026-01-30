@@ -1,0 +1,108 @@
+@use '../base/media' as *;
+@use '../base/mixins' as *;
+@use '../base/var' as *;
+
+.benefits {
+    padding-block: rem(0px) rem(178px);
+    position: relative;
+    overflow: hidden;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section-info {
+        margin-bottom: rem(238px);
+    }
+
+    .cta {
+        z-index: 4;
+    }
+
+    &__previews {
+        pointer-events: none;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__pic {
+        width: rem(374px);
+        z-index: 2;
+    }
+
+    &__scene {
+        width: rem(1281px);
+        position: absolute;
+        bottom: -19%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &::after {
+            content: '';
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(
+                50% 50% at 50% 50%,
+                rgba(248, 248, 248, 0) 43.27%,
+                #f8f8f8 89.42%
+            );
+        }
+    }
+
+    &__deco {
+        width: 100%;
+    }
+
+    &__cards {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: rem(24px);
+        position: relative;
+        z-index: 3;
+        margin-bottom: rem(397px);
+    }
+
+    &__card {
+        max-width: rem(294px);
+        padding: rem(16px) rem(24px);
+        border-radius: rem(20px);
+        border: 1px solid #2124270d;
+        background: #e4e4e433;
+        backdrop-filter: blur(15px) saturate(180%) contrast(100%);
+        &:nth-child(2n) {
+            justify-self: flex-end;
+        }
+
+        img {
+            width: rem(40px);
+            height: rem(40px);
+            margin-bottom: rem(8px);
+        }
+    }
+
+    &__title {
+        font: 700 #{rem(24px)} / 120% $ff-base;
+        margin-bottom: rem(4px);
+    }
+
+    &__text {
+        font: 300 #{rem(14px)} / 160% $ff-base;
+        color: $black_color_half;
+    }
+}

@@ -1,3 +1,95 @@
 @use '../base/media' as *;
 @use '../base/mixins' as *;
 @use '../base/var' as *;
+
+.footer {
+    .container {
+        &:first-of-type {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: rem(40px);
+            @include media('mobile') {
+                flex-direction: column;
+                align-items: center;
+                gap: rem(32px);
+            }
+        }
+    }
+
+    &__panel {
+        padding-block: rem(56px) rem(96px);
+        border-bottom: 1px solid #21242726;
+        @include media('mobile') {
+            padding-block: rem(45px);
+        }
+    }
+
+    &__logo {
+        max-width: rem(256px);
+        @include media('mobile') {
+            max-width: rem(150px);
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__info {
+        max-width: rem(833px);
+        gap: rem(20px);
+        flex-wrap: wrap;
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        @include media('mobile') {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+    }
+
+    &__copy {
+        font: 300 #{rem(14px)} / 160% $ff-base;
+        text-align: center;
+        padding-block: rem(24px);
+        @include media('mobile') {
+            padding-block: rem(16px);
+            font-size: rem(12px);
+        }
+    }
+
+    &__title {
+        font: 600 #{rem(12px)} / 160% $ff-base;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: rem(16px);
+        color: #21242780;
+        @include media('mobile') {
+            margin-bottom: rem(8px);
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: rem(8px);
+
+        li {
+            font: 300 #{rem(14px)} / 160% $ff-base;
+
+            a {
+                font: inherit;
+                @include transitions(
+                    0.3s,
+                    cubic-bezier(0.768, 0.304, 0.496, 0.884)
+                );
+                @include hover {
+                    color: $accent_green;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,71 @@
+@use '../base/media' as *;
+@use '../base/mixins' as *;
+@use '../base/var' as *;
+
+.hero {
+    padding-top: rem(200px);
+    position: relative;
+    margin-bottom: rem(234px);
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: rem(40px);
+    }
+
+    .section-info {
+        max-width: rem(491px);
+        position: relative;
+        z-index: 2;
+    }
+
+    &__pic {
+        width: rem(258px);
+        z-index: 2;
+    }
+
+    &__scene {
+        position: absolute;
+        min-width: rem(911px);
+        top: 50%;
+        left: 50%;
+        transform: translate(-49%, -24%);
+        &::after {
+            content: '';
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(
+                50% 50% at 50% 50%,
+                rgba(248, 248, 248, 0) 43.27%,
+                #f8f8f8 89.42%
+            );
+        }
+    }
+
+    &__bg {
+        opacity: 50%;
+        position: absolute;
+        top: rem(138px);
+        left: rem(-20px);
+        z-index: -1;
+        pointer-events: none;
+        width: rem(350px);
+        height: rem(350px);
+    }
+
+    &__previews {
+        position: relative;
+        max-width: 833px;
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        transform: translateX(140px);
+    }
+}

@@ -54,6 +54,6 @@
 }
 //example @include transitions(0.2s) or @include transitions(0.2s, linear, background, color)
 
-@function rem($px, $base: 16) {
-    @return ($px / $base) * 1rem;
+@function rem($px, $base: 16px) {
+    @return math.div($px, $base) * 1rem;
 }

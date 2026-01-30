@@ -1,0 +1,110 @@
+@use '../base/media' as *;
+@use '../base/mixins' as *;
+@use '../base/var' as *;
+
+.reviews {
+    padding-block: var(--section-indent);
+    position: relative;
+    overflow: hidden;
+
+    &__bg {
+        position: absolute;
+        left: 0;
+        top: rem(71px);
+        transform: translateX(-60%);
+        opacity: 50%;
+        pointer-events: none;
+    }
+
+    &__slider {
+        overflow: visible;
+        width: 100%;
+        padding-top: rem(96px);
+    }
+
+    &__slide {
+        height: auto !important;
+    }
+
+    .reviews-box {
+        height: 100%;
+        padding: rem(24px) rem(32px);
+        border-radius: rem(20px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: rem(40px);
+        background: #f1f1f1;
+
+        &__text {
+            font: 300 #{rem(14px)} / 160% $ff-base;
+            margin-bottom: rem(40px);
+            padding-top: rem(17px);
+            position: relative;
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: rem(13px);
+                width: rem(67px);
+                height: rem(52px);
+                background: url('../imgs/ico/ico-quote_2.svg') no-repeat center
+                    center / cover;
+            }
+        }
+        &__link {
+            font: 300 #{rem(13px)} / 140% $ff-base;
+            text-transform: capitalize;
+            text-decoration: underline;
+        }
+
+        &__author {
+            display: flex;
+            align-items: center;
+            gap: rem(8px);
+
+            img {
+                width: 64px;
+                height: 64px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+
+        &__position {
+            display: flex;
+            flex-direction: column;
+            gap: rem(4px);
+        }
+
+        &__name {
+            font: 700 #{rem(14px)} / 100% $ff-base;
+        }
+
+        &__work {
+            font: 300 #{rem(14px)} / 100% $ff-base;
+        }
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .slider-nav {
+        justify-content: flex-end;
+        width: 100%;
+    }
+
+    .morph {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%) rotate(255deg);
+    }
+
+    .cta {
+        margin-top: rem(96px);
+    }
+}

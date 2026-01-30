@@ -2,10 +2,11 @@
 
 $ff-accent: 'Inter', sans-serif;
 $ff-base: 'Urbanist', sans-serif;
-$container-width: #{rem(1288)};
+$container-width: #{rem(1288px)};
 
 $bgc_body: #f8f8f8;
 $black_color: #212427;
+$white_color: #f3f3f3;
 $black_color_half: #212427b2;
 $accent_green: #268936;
 $olive_green: #eefae1;
@@ -23,20 +24,20 @@ $text_gradient: linear-gradient(
 );
 
 :root {
-    --section-indent: #{rem(152)};
-    --scrl-mt: #{rem(100)};
-    --container-padding: #{rem(20)};
+    --section-indent: #{rem(152px)};
+    --scrl-mt: #{rem(200px)};
+    --container-padding: #{rem(20px)};
 }
 
 @media (max-width: 991px) {
     :root {
-        --section-indent: #{rem(96)};
+        --section-indent: #{rem(96px)};
     }
 }
 
 @media (max-width: 767px) {
     :root {
-        --section-indent: #{rem(56)};
-        --container-padding: #{rem(12)};
+        --section-indent: #{rem(56px)};
+        --container-padding: #{rem(12px)};
     }
 }

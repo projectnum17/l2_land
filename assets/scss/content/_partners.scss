@@ -1,0 +1,48 @@
+@use '../base/media' as *;
+@use '../base/mixins' as *;
+@use '../base/var' as *;
+
+.partners {
+    margin-bottom: rem(152px);
+    overflow: hidden;
+    user-select: none;
+
+    &__marquee {
+        display: flex;
+        width: max-content;
+        gap: rem(16px);
+    }
+
+    &__track {
+        display: flex;
+        align-items: center;
+        gap: rem(16px);
+        animation: scrollMarquee 90s linear infinite;
+        will-change: transform;
+
+        &:hover {
+            animation-play-state: paused;
+        }
+    }
+
+    &__group {
+        display: flex;
+        align-items: center;
+        gap: rem(16px);
+        padding-right: rem(16px);
+    }
+
+    &__marquee img {
+        width: rem(200px);
+        height: rem(64px);
+    }
+}
+
+@keyframes scrollMarquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}

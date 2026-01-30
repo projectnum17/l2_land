@@ -1,0 +1,83 @@
+@use '../base/media' as *;
+@use '../base/mixins' as *;
+@use '../base/var' as *;
+
+.location {
+    padding-block: rem(73px) rem(112px);
+
+    .section-info {
+        margin-bottom: rem(66px);
+    }
+
+    &__map {
+        max-width: rem(1127px);
+        height: rem(456px);
+        margin: 0 auto;
+        position: relative;
+        border-radius: rem(30px);
+
+        & > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            display: inline-flex;
+            border-radius: 50%;
+            top: 58%;
+            left: 43%;
+            background: linear-gradient(
+                180deg,
+                #258232 0%,
+                #268634 22.12%,
+                #2ba84a 100%
+            );
+        }
+    }
+
+    &__info {
+        position: absolute;
+        top: rem(105px);
+        left: 45%;
+        max-width: rem(329px);
+        padding: rem(22px);
+        border-radius: rem(20px);
+        border: 2px solid #ffffff;
+        background: #26853480;
+        backdrop-filter: blur(20px);
+        color: #f8f8f8;
+
+        &::after {
+            content: '';
+            position: absolute;
+            display: inline-flex;
+            left: 4px;
+            bottom: 0;
+            width: rem(20px);
+            height: rem(20px);
+            transform: translate(-50%, 50%);
+            background: url('../imgs/ico/pol.svg') no-repeat center center /
+                cover;
+        }
+    }
+
+    &__title {
+        font: 700 #{rem(32px)} / 120% $ff-base;
+        margin-bottom: rem(15px);
+    }
+
+    &__subtitle {
+        font: 700 #{rem(14px)} / 160% $ff-base;
+        color: #fff;
+    }
+
+    &__text {
+        font: 300 #{rem(14px)} / 160% $ff-base;
+        color: #fff;
+    }
+}

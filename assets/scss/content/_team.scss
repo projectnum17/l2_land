@@ -1,0 +1,196 @@
+@use '../base/media' as *;
+@use '../base/mixins' as *;
+@use '../base/var' as *;
+
+.team {
+    position: relative;
+    overflow: hidden;
+    padding-block: var(--section-indent);
+
+    &__info {
+        max-width: rem(506px);
+    }
+
+    &__benefits {
+        margin-top: rem(40px);
+        border-radius: rem(20px);
+        padding: rem(40px) rem(24px);
+        background: #f1f1f1;
+    }
+
+    &__title {
+        font: 700 #{rem(32px)} / 120% $ff-base;
+        max-width: rem(316px);
+        margin-bottom: rem(32px);
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: rem(16px) 0;
+        margin-bottom: rem(40px);
+        li {
+            display: inline-flex;
+            align-items: center;
+            gap: rem(8px);
+            font: 300 #{rem(14px)} / 170% $ff-base;
+
+            &::before {
+                content: '';
+                display: inline-flex;
+                flex-shrink: 0;
+                width: rem(24px);
+                height: rem(24px);
+                background: url('../imgs/ico/ico-check.svg') no-repeat center
+                    center / cover;
+            }
+        }
+    }
+
+    &__cards {
+        max-width: rem(612px);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: rem(24px);
+
+        max-height: rem(920px);
+        overflow-y: auto;
+        scrollbar-width: none;
+        position: relative;
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        -webkit-mask-image: linear-gradient(
+            180deg,
+            #f3f3f3 50%,
+            transparent 100%
+        );
+        -webkit-mask-size: 100% 100%;
+        -webkit-mask-position: 0 0;
+        -webkit-mask-repeat: no-repeat;
+
+        transition: -webkit-mask-size 0.5s ease;
+
+        &.is-hide {
+            -webkit-mask-size: 100% 200%;
+        }
+    }
+
+    &__card {
+        aspect-ratio: 294 / 427;
+        max-width: rem(294px);
+        height: rem(427px);
+        border-radius: rem(20px);
+        overflow: hidden;
+        position: relative;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                180deg,
+                rgba(33, 36, 39, 0) 59.62%,
+                rgba(0, 2, 18, 0.8) 100%
+            );
+            pointer-events: none;
+        }
+    }
+
+    &__about {
+        z-index: 2;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-radius: rem(20px);
+        padding: rem(32px) rem(24px);
+        background: hsl(0deg 0% 0% / 23%);
+        backdrop-filter: blur(15px) saturate(180%) contrast(100%);
+        -webkit-box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    &__subtitle {
+        font: 700 #{rem(32px)} / 120% $ff-base;
+        margin-bottom: rem(40px);
+        color: $olive_green;
+    }
+
+    &__link {
+        font: 300 #{rem(14px)} / 140% $ff-accent;
+        text-decoration: underline;
+        color: $olive_green;
+    }
+
+    &__bg {
+        opacity: 50%;
+        transform: translateY(-80%);
+        width: rem(350px);
+        height: rem(350px);
+        position: absolute;
+        top: 0;
+        left: rem(-100px);
+        pointer-events: none;
+    }
+
+    .container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: rem(20px);
+    }
+
+    .cta {
+        z-index: 2;
+    }
+
+    svg {
+        margin-bottom: rem(8px);
+        width: rem(48px);
+        height: rem(48px);
+        overflow: visible;
+
+        path {
+            transform-origin: center;
+            animation: breathe 1.5s ease-in-out infinite;
+
+            &:nth-child(1) {
+                animation-delay: 0s;
+            }
+            &:nth-child(2) {
+                animation-delay: 0.25s;
+            }
+            &:nth-child(3) {
+                animation-delay: 0.5s;
+            }
+        }
+
+        @keyframes breathe {
+            0% {
+                transform: scaleY(1);
+                opacity: 1;
+            }
+            40% {
+                transform: scaleY(0.96);
+                opacity: 0.9;
+            }
+            70% {
+                transform: scaleY(1.02);
+                opacity: 1;
+            }
+            100% {
+                transform: scaleY(1);
+            }
+        }
+    }
+}

@@ -1,0 +1,61 @@
+@use '../base/media' as *;
+@use '../base/mixins' as *;
+@use '../base/var' as *;
+
+.mobile-menu {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    z-index: 5;
+    transform: translateX(100%);
+    background: $bgc_body;
+    @include transitions(0.5s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+
+    &.is-active {
+        transform: translateX(0);
+    }
+
+    &__content {
+        padding-block: rem(100px) rem(20px);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-inline: var(--container-padding);
+    }
+
+    &__nav {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        ul {
+            padding: 0;
+            margin: 0;
+            align-items: flex-end;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            li {
+                list-style-type: none;
+                font: 400 #{rem(35px)} / 130% $ff-base;
+            }
+            a {
+                font: inherit;
+                @include transitions(0.3s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+                @include hover {
+                    color: var(--accent-green);
+                }
+            }
+        }
+    }
+
+    &__link {
+        margin-top: auto;
+        justify-content: center;
+        padding-block: rem(15px);
+        font-size: rem(16px);
+    }
+}

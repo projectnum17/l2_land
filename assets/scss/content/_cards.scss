@@ -1,0 +1,75 @@
+@use '../base/media' as *;
+@use '../base/mixins' as *;
+@use '../base/var' as *;
+
+.cards {
+    padding-block: var(--section-indent);
+    position: relative;
+    overflow: hidden;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: rem(24px);
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: rem(8px);
+        border-radius: rem(20px);
+        padding: rem(40px) rem(24px);
+        background: #e4e4e4;
+
+        img {
+            width: rem(48px);
+            height: rem(48px);
+        }
+    }
+
+    &__title {
+        font: 700 #{rem(32px)} / 120% $ff-base;
+    }
+
+    &__text {
+        font: 300 #{rem(14px)} / 160% $ff-base;
+        color: #212427b2;
+    }
+
+    &__bg {
+        opacity: 50%;
+        position: absolute;
+        left: 0;
+        top: rem(71px);
+        transform: translateX(-60%);
+        pointer-events: none;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .morph {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%) rotate(255deg);
+    }
+
+    .cta {
+        margin-top: rem(96px);
+        z-index: 2;
+    }
+
+    .section-info {
+        margin-bottom: rem(96px);
+    }
+}

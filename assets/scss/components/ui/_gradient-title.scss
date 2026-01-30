@@ -1,0 +1,34 @@
+@use '../../base/media' as *;
+@use '../../base/mixins' as *;
+@use '../../base/var' as *;
+
+.gradient-title {
+    background: linear-gradient(
+        120deg,
+        #258232 0%,
+        #268634 25%,
+        #2ba84a 50%,
+        #268634 75%,
+        #258232 100%
+    );
+
+    background-size: 300% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: gradientFlow 10s ease-in-out infinite;
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

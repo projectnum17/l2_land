@@ -1,0 +1,6 @@
+@use '../../base/media' as *;
+@use '../../base/mixins' as *;
+@use '../../base/var' as *;
+.content-title {
+    font: 700 #{rem(64px)} / 110% $ff-base;
+}
