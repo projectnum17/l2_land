@@ -17,7 +17,7 @@
         @include media('tablet') {
             flex-direction: column;
             gap: rem(56px);
-            padding-inline: 0;
+            // padding-inline: 0;
         }
     }
 
@@ -28,7 +28,6 @@
             margin: 0 auto;
             text-align: center;
             align-items: center;
-            padding-inline: var(--container-padding);
         }
     }
 
@@ -39,25 +38,27 @@
         gap: rem(50px) rem(40px);
         @include media('tablet') {
             padding: 0;
-            padding-inline: var(--container-padding);
-            display: flex;
-            align-items: center;
-            overflow: auto;
-            scrollbar-width: none;
-            &::-webkit-scrollbar {
-                display: none;
-            }
+            grid-template-columns: repeat(2, 1fr);
+            gap: rem(20px);
+            width: 100%;
+            place-items: center;
         }
         li {
             max-width: rem(188px);
             width: 100%;
 
             @include media('tablet') {
-                flex-shrink: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                max-width: rem(100px);
             }
 
             img {
                 width: 100%;
+                @include media('tablet') {
+                    margin: 0 auto;
+                }
             }
         }
     }

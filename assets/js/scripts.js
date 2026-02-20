@@ -11,17 +11,37 @@ const hideLoader = () => {
     }
 };
 
+import animationHandler from './modules/animationHandler.js';
 import mobileMenuHandler from './modules/mobileMenuHandler.js';
 import ctaHoverHandler from './modules/ctaHoverHandler.js';
 import headerScrolledHandler from './modules/headerScrolledHandler.js';
 import morphAnimation from './modules/morphAnimation.js';
 import slidersConfig from './modules/slidersConfig.js';
+import teamModalHandler from './modules/teamModalHandler.js';
 import calcScrollingHandler from './modules/calcScrollingHandler.js';
 import videoHandler from './modules/videoHandler.js';
 import formHandler from './modules/formHandler.js';
 import faqHandler from './modules/faqHandler.js';
+import reviewsHandler from './modules/reviewsHandler.js';
 
 const animationsHandler = () => {
+    const rotatingImg = document.querySelector(
+        '.contact__pic-deco img:last-child',
+    );
+
+    if (rotatingImg) {
+        gsap.to(rotatingImg, {
+            rotation: 360,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.contact__pic',
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 3,
+            },
+        });
+    }
+
     const animateBounceElements = () => {
         const bounceElements = document.querySelectorAll('.js-bounce-anim');
         if (!bounceElements.length) return;
@@ -115,7 +135,6 @@ const animationsHandler = () => {
             once: true,
         });
     };
-
     const animationScrollingElements = (
         selector = '.js-scroll',
         options = {},
@@ -130,7 +149,6 @@ const animationsHandler = () => {
             scale: 1,
             duration: 0.8,
             ease: 'power3.out',
-            stagger: 0.1,
             start: 'top 95%',
             end: 'bottom 80%',
         };
@@ -138,18 +156,19 @@ const animationsHandler = () => {
         const settings = { ...defaults, ...options };
 
         scrollingEls.forEach((el) => {
+            const scrollParent = el.closest('.js-hidden-block');
+
+            const isInnerScroll = !!scrollParent;
+
             gsap.from(el, {
                 opacity: settings.opacity,
                 y: settings.y,
-                x: settings.x,
-                scale: settings.scale,
                 duration: settings.duration,
                 ease: settings.ease,
-                stagger: settings.stagger,
                 scrollTrigger: {
                     trigger: el,
-                    start: settings.start,
-                    end: settings.end,
+                    scroller: scrollParent || window,
+                    start: isInnerScroll ? 'top 90%' : settings.start,
                     toggleActions: 'play none none reverse',
                 },
             });
@@ -168,6 +187,7 @@ const animationsHandler = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     animationsHandler();
+    animationHandler();
     mobileMenuHandler();
     ctaHoverHandler();
     headerScrolledHandler();
@@ -176,6 +196,8 @@ document.addEventListener('DOMContentLoaded', () => {
     videoHandler();
     formHandler();
     faqHandler();
+    reviewsHandler();
+    teamModalHandler();
     slidersConfig('.js-gallery-slider', {
         navigation: {
             prevEl: '.js-gallery-prev',

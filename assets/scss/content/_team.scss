@@ -112,6 +112,7 @@
     }
 
     &__card {
+        cursor: pointer;
         aspect-ratio: 294 / 427;
         max-width: rem(294px);
         height: rem(427px);
@@ -131,6 +132,9 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            @include media('mobile') {
+                height: 150%;
+            }
         }
 
         &::after {

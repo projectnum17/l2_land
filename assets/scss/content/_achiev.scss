@@ -25,6 +25,8 @@
                 max-width: 100%;
                 padding-top: 0;
                 width: 100%;
+                display: flex;
+                flex-direction: column;
             }
         }
 
@@ -130,18 +132,10 @@
 
         @include media('tablet') {
             margin-bottom: 0;
-            width: rem(350px);
-            height: rem(350px);
-            position: absolute;
-            top: rem(0px);
-            left: rem(0px);
-            transform: translate(-45%, -65%) rotate(255deg);
+            max-width: rem(350px);
+            margin: 0 auto rem(40px);
             width: inherit;
             height: inherit;
-        }
-        @include media('mobile') {
-            width: rem(250px);
-            height: rem(250px);
         }
     }
 

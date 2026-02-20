@@ -3,9 +3,9 @@
 @use '../base/var' as *;
 
 .hero {
-    padding-top: rem(200px);
+    padding-top: rem(100px);
     position: relative;
-    margin-bottom: rem(234px);
+    margin-bottom: rem(130px);
     @include media('tablet') {
         padding-top: rem(100px);
     }

@@ -175,7 +175,7 @@
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
-                    animation: rotates 20s linear infinite;
+                    // animation: rotates 20s linear infinite;
                     @include media('desktop') {
                         width: rem(420px);
                         height: rem(420px);

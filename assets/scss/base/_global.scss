@@ -72,3 +72,22 @@ section:has(.morph) {
     position: relative;
     overflow: hidden;
 }
+
+section:has(.dots-bg) {
+    position: relative;
+}
+
+.js-custom-scroll {
+    @include transitions(0.5s, cubic-bezier(0.768, 0.304, 0.496, 0.884));
+}
+section {
+    &.benefits {
+        .js-custom-scroll {
+            bottom: -40%;
+
+            &._animated {
+                bottom: -19%;
+            }
+        }
+    }
+}

@@ -122,6 +122,11 @@
             max-width: 100%;
             border-radius: rem(16px);
             padding: rem(18px);
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
         img {
